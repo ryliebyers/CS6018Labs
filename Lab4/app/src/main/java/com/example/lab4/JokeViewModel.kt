@@ -7,22 +7,27 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 
+
+
 class JokeViewModel(private val repository: JokeRepository) : ViewModel() {
+
     val currentJoke: LiveData<JokeData> = repository.currentJoke
 
     val allJokes: LiveData<List<JokeData>> = repository.allJokes
 
-    fun checkJokes(joke: String){
-        repository.checkJokes(joke)
+    fun checkJoke(joke: String){
+        repository.checkJoke(joke)
     }
-    fun addData(joke: JokeResult) {
-        viewModelScope.launch{
-            repository.checkJokes(joke.value)
+
+    fun addJoke(joke: JokeResult) {
+        viewModelScope.launch {
+            repository.checkJoke(joke.value)
         }
     }
 
 }
 
+// This factory class allows us to define custom constructors for the view model
 class JokeViewModelFactory(private val repository: JokeRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(JokeViewModel::class.java)) {

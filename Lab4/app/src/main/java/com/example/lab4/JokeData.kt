@@ -7,6 +7,7 @@ import androidx.room.TypeConverter
 import java.util.Date
 
 
+
 class Converters {
     @TypeConverter
     fun fromTimestamp(value: Long?): Date? {
@@ -18,12 +19,8 @@ class Converters {
         return date?.time?.toLong()
     }
 }
-
-//Defines a SQLITE table, basically
-@Entity(tableName="weather")
-data class JokeData(var timestamp: Date,
-                    var value: String,
-){
+@Entity(tableName="joke")
+data class JokeData(var timestamp: Date, var value: String) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0 // integer primary key for the DB
 }

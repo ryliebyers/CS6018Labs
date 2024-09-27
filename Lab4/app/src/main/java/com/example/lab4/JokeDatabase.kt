@@ -10,14 +10,17 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import kotlinx.coroutines.flow.Flow
 
+
+
+
 @Database(entities= [JokeData::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
-abstract class JokeDatabase : RoomDatabase() {
-
+abstract class JokeDatabase : RoomDatabase(){
     abstract fun jokeDao(): JokeDAO
 
     companion object {
-
+        // Singleton prevents multiple instances of database opening at the
+        // same time.
         @Volatile
         private var INSTANCE: JokeDatabase? = null
 
@@ -36,13 +39,8 @@ abstract class JokeDatabase : RoomDatabase() {
             }
         }
     }
-
-
-
-
-
-
 }
+
 
 @Dao
 interface JokeDAO {
@@ -50,12 +48,12 @@ interface JokeDAO {
     @Insert
     suspend fun addJokeData(data: JokeData)
 
-    @Query("SELECT * from weather ORDER BY timestamp DESC LIMIT 1")
+    @Query("SELECT * from joke ORDER BY timestamp DESC LIMIT 1")
     fun latestJoke() : Flow<JokeData>
 
 
 
-    @Query("SELECT * from weather ORDER BY timestamp DESC")
+    @Query("SELECT * from joke ORDER BY timestamp DESC")
     fun allJokes() : Flow<List<JokeData>>
 
 

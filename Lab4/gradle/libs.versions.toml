@@ -1,6 +1,6 @@
 [versions]
 activityComposeVersion = "1.7.2"
-agp = "8.6.0"
+agp = "8.6.1"
 androidxActivityCompose = "1.6.1"
 androidxComposeBom = "2024.09.02"
 androidxComposeComposeBom2 = "2023.09.00"
