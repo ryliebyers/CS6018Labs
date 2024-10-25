@@ -1,0 +1,29 @@
+POST http://127.0.0.1:8080/books/like
+Content-Type: application/json
+MY_SESSION: 3e5b333c33766d14b1899762e6669568
+
+{
+  "title" : "Dune 3"
+}
+
+###
+
+//need to implement corressponding handler
+POST http://127.0.0.1:8080/books/hate
+Content-Type: application/json
+MY_SESSION: ee1492c0dd5662d63868b3b8b907a5be
+
+{
+  "title" : "Dune 6"
+}
+
+####
+
+GET  http://127.0.0.1:8080/books/liked
+MY_SESSION: 3e5b333c33766d14b1899762e6669568
+
+####
+
+GET http://127.0.0.1:8080/books
+
+

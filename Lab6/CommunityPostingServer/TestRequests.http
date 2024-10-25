@@ -1,0 +1,37 @@
+POST http://127.0.0.1:8080/posts/create
+Content-Type: application/json
+#MY_SESSION: 3e5b333c33766d14b1899762e6669568
+
+{
+  "text" : "Dune 3"
+}
+
+###
+
+//need to implement corressponding handler
+POST http://127.0.0.1:8080/posts/create
+Content-Type: application/json
+#MY_SESSION: ee1492c0dd5662d63868b3b8b907a5be
+
+{
+  "text" : "Dune 6"
+}
+
+####
+
+GET  http://127.0.0.1:8080/posts
+
+####
+
+GET  http://127.0.0.1:8080/posts/1/id
+
+####
+
+GET  http://127.0.0.1:8080/posts/0/timestamp
+
+####
+
+DELETE http://127.0.0.1:8080/posts/1/delete
+
+
+
